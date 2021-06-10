@@ -2,13 +2,17 @@
   "name": "singlefileapproach",
   "version": "1.0.0",
   "description": "Single import treeshakable approach",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
   "scripts": {
     "generate": "gulp --require ts-node/register/transpile-only",
     "script:filled": "node -r ts-node/register scripts/index.ts --target=filled",
     "script:animated": "node -r ts-node/register scripts/index.ts --target=animated",
     "script:outlined": " node -r ts-node/register scripts/index.ts --target=outlined",
-    "publish": "npm run generate && mkdir -p src/icon && npm run script:filled && npm run script:animated && npm run script:outlined"
+    "build:es": "tsc --project tsconfig.build.json --module esnext --outDir es",
+    "build:lib": "tsc --project tsconfig.build.json --module commonjs --outDir lib",
+    "build": "npm run build:es && npm run build:lib",
+    "publish": "npm run generate && mkdir -p src/icon && npm run script:filled && npm run script:outlined && npm run build"
   },
   "author": "Vinayak",
   "license": "ISC",
@@ -18,6 +22,7 @@
     "@types/graceful-fs": "^4.1.5",
     "@types/gulp": "^4.0.8",
     "@types/lodash": "^4.14.170",
+    "@types/react": "^17.0.11",
     "del": "^6.0.0",
     "eos-icons": "^5.1.0",
     "eslint": "^7.28.0",
@@ -32,9 +37,13 @@
     "react": "^17.0.2"
   },
   "files": [
-    "src"
+    "src",
+    "lib",
+    "es"
   ],
   "release": {
-    "branches": ["master"]
+    "branches": [
+      "master"
+    ]
   }
 }

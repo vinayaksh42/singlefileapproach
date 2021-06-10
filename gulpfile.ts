@@ -4,7 +4,7 @@ import { copy } from './utils/copy';
 import { generateIconComponents } from './scripts/index'
 
 export default series(
-    clean(['src', 'svg']),
+    clean(['src', 'svg','es','lib']),
 
     parallel(
 
