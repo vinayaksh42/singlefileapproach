@@ -55,5 +55,14 @@
     "branches": [
       "master"
     ]
-  }
+  },
+  "files": [
+    "src",
+    "es",
+    "lib",
+    "dist",
+    "svg",
+    "/*.js",
+    "/*.d.ts"
+  ]
 }
