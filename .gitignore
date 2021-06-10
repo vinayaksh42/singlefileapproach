@@ -5,3 +5,9 @@ src
 es
 lib
 dist
+svg
+/icon
+/*.js
+/*.d.ts
+!.fatherrc.js
+!jest.config.js

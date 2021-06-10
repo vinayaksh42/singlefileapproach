@@ -9,27 +9,32 @@ export default series(
 
         copy({
             from: ['node_modules/eos-icons/svg/*.svg'],
-            toDir: 'src/svg/filled'
+            toDir: 'svg/filled'
         }),
 
         copy({
             from: ['node_modules/eos-icons/svg/material/*.svg'],
-            toDir: 'src/svg/filled'
+            toDir: 'svg/filled'
         }),
 
         copy({
             from: ['node_modules/eos-icons/animated-svg/*.svg'],
-            toDir: 'src/svg/animated'
+            toDir: 'svg/animated'
         }),
 
         copy({
             from: ['node_modules/eos-icons/svg-outlined/*.svg'],
-            toDir: 'src/svg/outlined'
+            toDir: 'svg/outlined'
         }),
 
         copy({
             from: ['node_modules/eos-icons/svg-outlined/material/*.svg'],
-            toDir: 'src/svg/outlined'
-        })
+            toDir: 'svg/outlined'
+        }),
+
+        copy({
+            from: ['utils/index.ts'],
+            toDir: 'src/'
+        }),
     ),
 );

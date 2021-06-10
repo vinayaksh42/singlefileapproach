@@ -2,21 +2,22 @@
   "name": "singlefileapproach",
   "version": "1.0.0",
   "description": "Single import treeshakable approach",
-  "main": "./src/index",
-  "module": "./src/index.es.js",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
   "scripts": {
-    "generate": "gulp --require ts-node/register/transpile-only",
-    "script:filled:js": "node -r ts-node/register scripts/index.ts --target=filled --ext=js",
-    "script:filled:tsx": "node -r ts-node/register scripts/index.ts --target=filled --ext=tsx",
-    "script:outlined:js": "node -r ts-node/register scripts/index.ts --target=outlined --ext=js",
-    "script:outlined:tsx": "node -r ts-node/register scripts/index.ts --target=outlined --ext=tsx",
-    "script:filled": "npm run script:filled:js && npm run script:filled:tsx",
-    "script:animated": "node -r ts-node/register scripts/index.ts --target=animated",
-    "script:outlined": " npm run script:outlined:js && npm run script:outlined:tsx",
+    "clean": "./scripts/cleanup.sh",
+    "generate": "TS_NODE_PROJECT=tsIconConfig.json gulp --require ts-node/register/transpile-only",
+    "script:filled": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=filled --target=icon",
+    "script:outlined": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=outlined --target=icon",
+    "script:animated": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=animated --target=icon",
+    "script:filled:e": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=filled --target=entery",
+    "script:outlined:e": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=outlined --target=entery",
+    "script:animated:e": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=animated --target=entery",
+    "icon:generate": "mkdir -p src/icon && npm run script:filled && npm run script:outlined && npm run script:filled:e && npm run script:outlined:e",
+    "publish": "npm run generate && npm run icon:generate && npm run build",
     "build:es": "tsc --project tsconfig.build.json --module esnext --outDir es",
     "build:lib": "tsc --project tsconfig.build.json --module commonjs --outDir lib",
-    "build": "npm run build:es && npm run build:lib",
-    "publish": "npm run generate && mkdir -p src/icon && npm run script:filled && npm run script:outlined && npm run script:animated && rollup -c"
+    "build": "npm run build:es && npm run build:lib"
   },
   "author": "Vinayak",
   "license": "ISC",
@@ -35,6 +36,7 @@
     "del": "^6.0.0",
     "eos-icons": "^5.1.0",
     "eslint": "^7.28.0",
+    "father": "^2.30.6",
     "gulp": "^4.0.2",
     "gulp-rename": "^2.0.0",
     "lodash": "^4.17.21",
@@ -51,9 +53,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "files": [
-    "src"
-  ],
   "release": {
     "branches": [
       "master"
