@@ -19,7 +19,7 @@ const render = `
 
 import * as React from 'react';
 
-const Eos${fileName} = () => {
+function Eos${fileName}() {
   return (
     ${data}
   );
@@ -30,7 +30,7 @@ export default Eos${fileName};
 const indexContent = `export { default as Eos${fileName} } from './${fileName}';
 `;
         await fs.writeFile(
-          path.resolve(__dirname,`../src/icon/${fileName}.tsx`), 
+          path.resolve(__dirname,`../src/icon/${fileName}.js`), 
           render, 
           {
             flag: 'w+'
@@ -41,7 +41,7 @@ const indexContent = `export { default as Eos${fileName} } from './${fileName}';
             }
         })
         await fs.writeFile(
-          path.resolve(__dirname, `../src/icon/index.tsx`),
+          path.resolve(__dirname, `../src/icon/index.js`),
           indexContent,
           {
             flag: 'a+'

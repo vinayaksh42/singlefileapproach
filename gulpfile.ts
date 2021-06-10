@@ -3,7 +3,7 @@ import { clean } from './utils/clean';
 import { copy } from './utils/copy';
 
 export default series(
-    clean(['src', 'svg','es','lib']),
+    clean(['src', 'svg','es','lib','dist']),
 
     parallel(
 
