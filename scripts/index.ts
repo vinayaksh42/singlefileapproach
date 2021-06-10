@@ -11,8 +11,12 @@ export const generateIconComponents = (type:string, from:string) => {
       const fileName = iconName.slice(0, iconName.length - 4).concat(type.charAt(0).toUpperCase() + type.slice(1));
       const name = iconName.slice(0, iconName.length - 4)
       await fs.readFile(path.resolve(__dirname,`../src/svg/${type}/${iconName}`),'utf8', async function (err,data) {
-        if(err){
+        if(err) {
           console.error(err);
+        }
+
+        if(type === 'animated') {
+          data = data.replace('xml:space="preserve"','');
         }
 const render = `
 // GENERATE BY ./scripts/index.ts

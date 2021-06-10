@@ -1,10 +1,11 @@
 import babel from 'rollup-plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external'
+import ts from "rollup-plugin-ts";
 
 export default [
     {
-        input: './src/icon/index.js',
+        input: 'src/icon/index.js',
         output: [
             {
                 file: 'dist/index.js',
@@ -14,6 +15,10 @@ export default [
                 file: 'dist/index.es.js',
                 format: 'es',
                 exports: 'named',
+            },
+            {
+                file: 'dist/index.d.ts',
+                format: 'cjs'
             }
         ],
         plugins: [
@@ -23,6 +28,7 @@ export default [
             }),
             external(),
             resolve(),
+            ts({target: 'es5'})
         ]
     }
 ]

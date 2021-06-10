@@ -12,7 +12,7 @@
     "build:es": "tsc --project tsconfig.build.json --module esnext --outDir es",
     "build:lib": "tsc --project tsconfig.build.json --module commonjs --outDir lib",
     "build": "npm run build:es && npm run build:lib",
-    "publish": "npm run generate && mkdir -p src/icon && npm run script:filled && npm run script:outlined && rollup -c"
+    "publish": "npm run generate && mkdir -p src/icon && npm run script:filled && npm run script:outlined && npm run script:animated && rollup -c"
   },
   "author": "Vinayak",
   "license": "ISC",
@@ -37,6 +37,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-ts": "^1.4.0",
     "semantic-release": "^17.4.3",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
