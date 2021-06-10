@@ -1,7 +1,6 @@
 import { series, parallel } from 'gulp';
 import { clean } from './utils/clean';
 import { copy } from './utils/copy';
-import { generateIconComponents } from './scripts/index'
 
 export default series(
     clean(['src', 'svg','es','lib']),

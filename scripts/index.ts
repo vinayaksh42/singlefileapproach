@@ -1,10 +1,5 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { promisify } from 'util';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { template } from 'lodash';
-
-const writeFile = promisify(fs.writeFile);
 
 export const generateIconComponents = (type:string, from:string) => {
   generateIcon(type,from)
@@ -19,23 +14,23 @@ export const generateIconComponents = (type:string, from:string) => {
         if(err){
           console.error(err);
         }
-        const render = `
-        // GENERATE BY ./scripts/index.ts
-  
-        import * as React from 'react';
-        
-        const Eos${fileName} = () => {
-          return (
-            ${data}
-          );
-        };
-  
-        export default Eos${fileName};
-        `;
-        const indexContent = `export { default as Eos${fileName} } from './icon/${fileName}';
-        `;
+const render = `
+// GENERATE BY ./scripts/index.ts
+
+import * as React from 'react';
+
+const Eos${fileName} = () => {
+  return (
+    ${data}
+  );
+};
+
+export default Eos${fileName};
+`;
+const indexContent = `export { default as Eos${fileName} } from './${fileName}';
+`;
         await fs.writeFile(
-          path.resolve(__dirname,`../src/icon/${fileName}.js`), 
+          path.resolve(__dirname,`../src/icon/${fileName}.tsx`), 
           render, 
           {
             flag: 'w+'
@@ -46,7 +41,7 @@ export const generateIconComponents = (type:string, from:string) => {
             }
         })
         await fs.writeFile(
-          path.resolve(__dirname, `../src/index.js`),
+          path.resolve(__dirname, `../src/icon/index.tsx`),
           indexContent,
           {
             flag: 'a+'
