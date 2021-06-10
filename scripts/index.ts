@@ -35,7 +35,7 @@ export const generateIconComponents = (type:string, from:string) => {
         const indexContent = `export { default as Eos${fileName} } from './icon/${fileName}';
         `;
         await fs.writeFile(
-          path.resolve(__dirname,`../src/icon/${fileName}.tsx`), 
+          path.resolve(__dirname,`../src/icon/${fileName}.js`), 
           render, 
           {
             flag: 'w+'
@@ -46,7 +46,7 @@ export const generateIconComponents = (type:string, from:string) => {
             }
         })
         await fs.writeFile(
-          path.resolve(__dirname, `../src/index.tsx`),
+          path.resolve(__dirname, `../src/index.js`),
           indexContent,
           {
             flag: 'a+'
