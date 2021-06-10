@@ -2,8 +2,8 @@
   "name": "singlefileapproach",
   "version": "1.0.0",
   "description": "Single import treeshakable approach",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
+  "main": "./lib/index.jsx",
+  "module": "./es/index.jsx",
   "scripts": {
     "generate": "gulp --require ts-node/register/transpile-only",
     "script:filled": "node -r ts-node/register scripts/index.ts --target=filled",
@@ -37,7 +37,9 @@
     "react": "^17.0.2"
   },
   "files": [
-    "src"
+    "src",
+    "es",
+    "lib"
   ],
   "release": {
     "branches": [
