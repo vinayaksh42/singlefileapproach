@@ -19,8 +19,10 @@ export const iconEntery = ({type,from}: iconGenerateScript) => {
 
         if(type === 'animated') {
           data = data.replace('xml:space="preserve"','');
-          while(data.includes('class')) {
-            data = data.replace('class','className');
+          if(fileName === 'installingAnimated') {
+            while(data.includes('class="st0"')) {
+              data = data.replace('class="st0"','className="st0"');
+            }
           }
         }
 const render = `
