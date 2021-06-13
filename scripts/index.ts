@@ -1,5 +1,5 @@
-import {iconEntery} from './iconEntry';
-import {generateIconComponents} from './iconComponent';
+import iconEntery from './iconEntry';
+import generateIconComponents from './iconComponent';
 
 if (process.argv[2] === '--target=filled') {
     if (process.argv[3] === '--target=icon') {
