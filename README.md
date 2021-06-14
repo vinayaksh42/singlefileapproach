@@ -8,6 +8,20 @@ npm install
 npm run publish
 ```
 
+## How to test package:
+
+### JavaScript:
+```bash
+npm install
+npm run test:js
+```
+
+### TypeScript:
+```bash
+npm install
+npm run test:ts
+```
+
 ## Explanation of npm scripts:
 
 ```c
