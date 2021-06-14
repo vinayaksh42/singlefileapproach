@@ -25,32 +25,20 @@ npm run test:ts
 ## Explanation of npm scripts:
 
 ```c
-//Used for removing files that are not relevant to development
-"clean": "./scripts/cleanup.sh",
-
 //Runs gulpfile for fetching SVG files from 'eos-icons' and also copies utility functions to build folder
 "generate": "TS_NODE_PROJECT=tsIconConfig.json gulp --require ts-node/register/transpile-only",
 
 //Runs script for scaffolding TypeScript SVG component into src/icon - filled
-"script:filled": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=filled --target=icon",
+"script:filled": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=filled",
 
 //Runs script for scaffolding TypeScript SVG component into src/icon - outlined
-"script:outlined": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=outlined --target=icon",
+"script:outlined": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=outlined",
 
 //Runs script for scaffolding TypeScript SVG component into src/icon - animated
-"script:animated": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=animated --target=icon",
-
-//Runs script for scaffolding TypeScript and JavaScript export files into ./ - filled
-"script:filled:e": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=filled --target=entery",
-
-//Runs script for scaffolding TypeScript and JavaScript export files into ./ - outlined
-"script:outlined:e": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=outlined --target=entery",
-
-//Runs script for scaffolding TypeScript and JavaScript export files into ./ - animated
-"script:animated:e": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=animated --target=entery",
+"script:animated": "TS_NODE_PROJECT=config/tsconfig.json node -r ts-node/register scripts/index.ts --target=animated",
 
 //Runs all the scaffolding script
-"icon:generate": "mkdir -p src/icon && npm run script:filled && npm run script:filled:e && npm run script:animated && npm run script:animated:e && npm run script:outlined  && npm run script:outlined:e",
+"icon:generate": "mkdir -p src/icon && npm run script:filled && npm run script:animated && npm run script:outlined",
 
 //builds for publishing in esnext
 "build:es": "tsc --project tsconfig.build.json --module esnext --outDir es",
@@ -62,13 +50,18 @@ npm run test:ts
 "build": "npm run build:es && npm run build:lib",
 
 //Runs gulpfile, scaffolding scripts and build command
-"publish": "npm run generate && npm run icon:generate && npm run build"
+"publish": "npm run generate && npm run icon:generate && npm run build",
+
+//For testing in TypeScript
+"test:ts": "npm run publish && cd ./typescript-test-project && yarn install && npm run start",
+
+//For testing in JavaScript
+"test:js": "npm run publish && cd ./javascript-test-project && yarn install && npm run start"
 ```
 
 ## Explanation of building process:
 1. GulpFile fetches icons from 'Eos-Icons' npm package and places them in a folder named: 'svg'.
 2. The scripts use the content of SVG files for scaffolding TypeScript React components in src/icon.
 3. The script also produces a common index.ts file which exports all the icons.
-4. The entery script creates the enter point for all the components in the root of the directory.
-5. Finally the build command builds all the files in es and cjs format in lib and es respectively.
-6. semantic release is setup in this repo and a commit containing "fix", "feat" or "perf" publishes the package on npm. (semantic naming can be modified)
+4. Finally the build command builds all the files in es and cjs format in lib and es respectively.
+5. semantic release is setup in this repo and a commit containing "fix", "feat" or "perf" publishes the package on npm. (semantic naming can be modified)
