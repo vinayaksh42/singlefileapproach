@@ -1,5 +1,5 @@
 import './App.css';
-import { Eos10kFilled } from 'singlefileapproach/src/index';
+import { Eos10kFilled } from 'singlefileapproach';
 
 function App() {
   return (
