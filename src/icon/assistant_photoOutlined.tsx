@@ -3,10 +3,26 @@
 
 import * as React from 'react';
 
-function Eosassistant_photoOutlined() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function Eosassistant_photoOutlined(props: iconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.36 6l.08.39.32 1.61H18v6h-3.36l-.08-.39-.32-1.61H7V6h5.36M14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6L14 4z"/></svg>
+    <svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.36 6l.08.39.32 1.61H18v6h-3.36l-.08-.39-.32-1.61H7V6h5.36M14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6L14 4z"/></svg>
   );
 };
+
+Eosassistant_photoOutlined.defaultProps = defaultProps;
 
 export default Eosassistant_photoOutlined;

@@ -3,10 +3,26 @@
 
 import * as React from 'react';
 
-function Eosarrow_downwardFilled() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function Eosarrow_downwardFilled(props: iconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#010101" d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+    <svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#010101" d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
   );
 };
+
+Eosarrow_downwardFilled.defaultProps = defaultProps;
 
 export default Eosarrow_downwardFilled;

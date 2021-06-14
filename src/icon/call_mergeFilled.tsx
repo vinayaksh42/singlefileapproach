@@ -3,10 +3,26 @@
 
 import * as React from 'react';
 
-function Eoscall_mergeFilled() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function Eoscall_mergeFilled(props: iconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"/></svg>
+    <svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"/></svg>
   );
 };
+
+Eoscall_mergeFilled.defaultProps = defaultProps;
 
 export default Eoscall_mergeFilled;

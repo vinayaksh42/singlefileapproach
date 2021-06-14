@@ -3,11 +3,27 @@
 
 import * as React from 'react';
 
-function EospackagesFilled() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function EospackagesFilled(props: iconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="20.04 6.01 4.04 6.01 4.04 8.01 7.53 8.01 20.04 8.01 20.04 6.01"/><polygon points="18.02 2.01 6.01 2.01 6.01 4.01 8.63 4.01 18.02 4.01 18.02 2.01"/><path d="M2,10v2H4v8a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V12h2V10Zm9,9H6V17h5Z"/></svg>
+    <svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="20.04 6.01 4.04 6.01 4.04 8.01 7.53 8.01 20.04 8.01 20.04 6.01"/><polygon points="18.02 2.01 6.01 2.01 6.01 4.01 8.63 4.01 18.02 4.01 18.02 2.01"/><path d="M2,10v2H4v8a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V12h2V10Zm9,9H6V17h5Z"/></svg>
 
   );
 };
+
+EospackagesFilled.defaultProps = defaultProps;
 
 export default EospackagesFilled;

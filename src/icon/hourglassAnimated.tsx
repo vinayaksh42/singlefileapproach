@@ -3,9 +3,23 @@
 
 import * as React from 'react';
 
-function EoshourglassAnimated() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function EoshourglassAnimated(props: iconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+    <svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
 <g>
 <path d="M7 3H17V7.2L12 12L7 7.2V3Z">
 <animate id="first" attributeName="opacity" from="1" to="0" dur="2s" begin="0;second.end" fill="freeze"/>
@@ -21,5 +35,7 @@ function EoshourglassAnimated() {
 
   );
 };
+
+EoshourglassAnimated.defaultProps = defaultProps;
 
 export default EoshourglassAnimated;

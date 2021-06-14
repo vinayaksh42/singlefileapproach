@@ -23,16 +23,36 @@ async function generateIconComponents({type,from}: iconGenerateScript) {
           }
         }
       }
+
+      const propString = 'svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width}'
+
+      data = data.replace('svg',propString);
 const render = `
 // GENERATE BY ./scripts/index.ts
 
 import * as React from 'react';
 
-function Eos${fileName}() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function Eos${fileName}(props: iconProps) {
   return (
     ${data}
   );
 };
+
+Eos${fileName}.defaultProps = defaultProps;
 
 export default Eos${fileName};
 `;

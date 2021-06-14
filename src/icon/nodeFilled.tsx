@@ -3,9 +3,23 @@
 
 import * as React from 'react';
 
-function EosnodeFilled() {
+interface iconProps {
+  height: string | number | undefined,
+  width: string | number | undefined,
+  color: string | undefined,
+  rotate: string | undefined
+}
+
+const defaultProps = {
+  height: 36,
+  width: 36,
+  color: 'black',
+  rotate: '0'
+};
+
+function EosnodeFilled(props: iconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <circle cx="12" cy="3" r="1"/>
   <circle cx="20" cy="8" r="1"/>
   <circle cx="20" cy="16" r="1"/>
@@ -18,5 +32,7 @@ function EosnodeFilled() {
 
   );
 };
+
+EosnodeFilled.defaultProps = defaultProps;
 
 export default EosnodeFilled;
