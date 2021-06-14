@@ -36,5 +36,5 @@ export default series(
             from: ['utils/index.ts'],
             toDir: 'src/'
         }),
-    ),
+    )
 );
