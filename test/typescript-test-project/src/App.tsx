@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Eos10kFilled height="100" width="100" color="blue" rotate="90"/>
+        <Eos10kFilled />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
