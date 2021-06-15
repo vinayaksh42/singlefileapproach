@@ -1,11 +1,11 @@
 import './App.css';
-import { Eos10mpFilled } from 'singlefileapproach';
+import { Eos10kFilled } from 'singlefileapproach';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Eos10mpFilled/>
+        <Eos10kFilled/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
