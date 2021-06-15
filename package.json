@@ -15,7 +15,7 @@
     "build": "npm run build:es && npm run build:lib",
     "publish": "npm run generate && npm run icon:generate && npm run build",
     "test:ts": "npm run publish && cd ./typescript-test-project && yarn install && npm run start",
-    "test:js": "npm run publish && cd ./javascript-test-project && yarn install && npm run start"
+    "test:js": "npm run publish && cd ./javascript-test-project && yarn install && node analyse.js"
   },
   "author": "Vinayak",
   "license": "ISC",
