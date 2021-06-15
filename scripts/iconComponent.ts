@@ -56,7 +56,7 @@ Eos${fileName}.defaultProps = defaultProps;
 
 export default Eos${fileName};
 `;
-const indexContent = `export { default as Eos${fileName} } from './icon/${fileName}';
+const indexContent = `export { default as Eos${fileName} } from './${fileName}';
 `;
       await fs.writeFile(
         path.resolve(__dirname,`../src/icon/${fileName}.tsx`), 
@@ -70,7 +70,7 @@ const indexContent = `export { default as Eos${fileName} } from './icon/${fileNa
           }
       })
       await fs.writeFile(
-        path.resolve(__dirname, `../src/index.tsx`),
+        path.resolve(__dirname, `../src/icon/index.tsx`),
         indexContent,
         {
           flag: 'a+'
