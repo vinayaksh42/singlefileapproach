@@ -24,7 +24,7 @@ async function generateIconComponents({type,from}: iconGenerateScript) {
         }
       }
 
-      const propString = 'svg transform={`rotate(${props.rotate})`} fill={props.color} width={props.width} height={props.width}'
+      const propString = "svg transform={`rotate(${props.rotate ? props.rotate : '0'})`} fill={props.color ? props.color : 'black'} width={props.width ? props.width : 36} height={props.height ? props.height : 36}"
 
       data = data.replace('svg',propString);
 const render = `
@@ -39,20 +39,12 @@ interface iconProps {
   rotate: string | undefined
 }
 
-const defaultProps = {
-  height: 36,
-  width: 36,
-  color: 'black',
-  rotate: '0'
-};
-
 function Eos${fileName}(props: iconProps) {
   return (
     ${data}
   );
 };
 
-Eos${fileName}.defaultProps = defaultProps;
 
 export default Eos${fileName};
 `;
