@@ -4,6 +4,7 @@ node_modules
 es
 lib
 dist
+/*src
 svg
 /*.js
 /*.d.ts

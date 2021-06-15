@@ -1,14 +1,13 @@
-import React from 'react';
 import './App.css';
-import { Eos10kFilled } from 'singlefileapproach'
- 
+import { Eos10mpFilled } from 'singlefileapproach';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Eos10kFilled height="100" width="100" color="red" rotate="90"/>
+        <Eos10mpFilled/>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
