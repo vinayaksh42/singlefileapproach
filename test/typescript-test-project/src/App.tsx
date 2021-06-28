@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Eos10kFilled />
+        <Eos10kFilled rotate={70} color="red"/>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
