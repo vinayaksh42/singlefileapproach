@@ -6,7 +6,7 @@ This is a trial approach for building a treeshakable npm package for EOS-Icons w
 ```bash
 npm install
 npm run publish
-```
+``` 
 
 ## How to test package:
 
