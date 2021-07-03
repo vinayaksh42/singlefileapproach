@@ -1,7 +1,7 @@
 {
   "name": "singlefileapproach",
   "version": "1.0.0",
-  "description": "Single import treeshakable approach",
+  "description": "Single treeshakable approach",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "scripts": {
