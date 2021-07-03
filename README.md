@@ -65,3 +65,4 @@ npm run test:ts
 3. The script also produces a common index.ts file which exports all the icons.
 4. Finally the build command builds all the files in es and cjs format in lib and es respectively.
 5. semantic release is setup in this repo and a commit containing "fix", "feat" or "perf" publishes the package on npm. (semantic naming can be modified)
+
