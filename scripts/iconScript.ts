@@ -20,13 +20,13 @@ async function generateIconComponents ({ type, from }: IconGenerateScript) {
         data = data.replace('xml:space="preserve"', '')
         if (fileName === 'installingAnimated') {
           while (data.includes('class="st0"')) {
-            data = data.replace('class="st0"', 'className="st0"')
+            data = data.replace('class="st0"', '')
           }
         }
       }
 
       // eslint-disable-next-line no-template-curly-in-string
-      const propString = 'svg data-testid="eos-svg-component" transform={`rotate(${rotate}, 12, 12) translate(${translateX}, ${translateY}) scale(${scaleX}, ${scaleY})`} fill={color} width={size} height={size}'
+      const propString = 'svg className={classString} data-testid="eos-svg-component" transform={`rotate(${rotate}, 12, 12) translate(${translateX}, ${translateY}) scale(${scaleX}, ${scaleY})`} fill={color} width={size} height={size}'
       data = data.replace('svg', propString)
 
       const render = componentTemplate({ fileName, data })

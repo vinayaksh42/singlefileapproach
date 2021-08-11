@@ -17,9 +17,7 @@ function Eos${fileName}({size = "m", color = "black", rotate = 0, horizontalFlip
     const { scaleX, scaleY, translateX, translateY } = flipFunction({horizontalFlip,verticalFlip})
     const classString = classNames(className);
 return (
-    <span className={classString}>
       ${data}
-    </span>
     );
 };
 
