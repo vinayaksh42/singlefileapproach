@@ -28,4 +28,6 @@ export default Eos${fileName};
   return (render)
 }
 
+
+
 export default componentTemplate
