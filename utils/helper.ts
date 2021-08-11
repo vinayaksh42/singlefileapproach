@@ -3,7 +3,8 @@ export interface IconProps {
     color?: string,
     rotate?: string | number,
     horizontalFlip?: boolean,
-    verticalFlip?: boolean
+    verticalFlip?: boolean,
+    className?: string
 }
 
 export interface ValueMap {
