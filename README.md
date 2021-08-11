@@ -16,7 +16,7 @@ npm install
 npm run test:js
 ```
 
-### TypeScript:
+### TypeScript: 
 ```bash
 npm install
 npm run test:ts
